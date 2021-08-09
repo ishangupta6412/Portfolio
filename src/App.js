@@ -1,25 +1,87 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//COMPONENTS
+import Menu from './components/menu/menu.jsx';
+import Nav from './components/nav/nav.jsx';
+import Header from './components/header/header.jsx';
+import About from './components/about/about.jsx';
+import Projects from './components/projects/projects.jsx';
+import Contact from './components/contact/contact.jsx';
+import Footer from './components/footer/footer.jsx';
+
+
+//CSS
+import "./app.css";
+
+
+class App extends React.Component {
+  state = {
+    menuState: false
+  };
+
+  toggleMenu = () => {
+    this.setState(state => ({
+      menuState: !state.menuState
+        ? 'active'
+        : state.menuState === 'deactive'
+          ? 'active'
+          : 'deactive'
+    }));
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <Menu toggleMenu={this.toggleMenu} showMenu={this.state.menuState} />
+        <Nav toggleMenu={this.toggleMenu} showMenu={this.state.menuState} />
+        <Header />
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+        
+      </React.Fragment>
+    );
+  }
+
+  componentDidMount() {
+    const navbar = document.querySelector('#navbar');
+    const header = document.querySelector('#welcome-section');
+    const forest = document.querySelector('.forest');
+    const silhouette = document.querySelector('.silhouette');
+    let forestInitPos = -300;
+
+    window.onscroll = () => {
+      let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+
+      if (scrollPos <= window.innerHeight) {
+        silhouette.style.bottom = `${parseInt(scrollPos / 6)}px`;
+        forest.style.bottom = `${parseInt(forestInitPos + scrollPos / 6)}px`;
+      }
+
+      if (scrollPos - 100 <= window.innerHeight)
+        header.style.visibility = header.style.visibility === 'hidden' && 'visible';
+      else header.style.visibility = 'hidden';
+
+      if (scrollPos + 100 >= window.innerHeight) navbar.classList.add('bg-active');
+      else navbar.classList.remove('bg-active');
+    };
+
+    (function navSmoothScrolling() {
+      const internalLinks = document.querySelectorAll('a[href^="#"]');
+      for (let i in internalLinks) {
+        if (internalLinks.hasOwnProperty(i)) {
+          internalLinks[i].addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(internalLinks[i].hash).scrollIntoView({
+              block: 'start',
+              behavior: 'smooth'
+            });
+          });
+        }
+      }
+    })();
+  }
 }
 
 export default App;
