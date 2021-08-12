@@ -4,7 +4,7 @@ function SocialLinks (props) {
     return (
       <div className="social">
         <a
-          href="https://twitter.com/yagoestevez"
+          href="https://twitter.com/ishangupta641"
           target="_blank"
           rel="noopener noreferrer"
           title="Link to author's Twitter profile"
@@ -14,7 +14,7 @@ function SocialLinks (props) {
         </a>
         <a
           id="profile-link"
-          href="https://github.com/yagoestevez"
+          href="https://github.com/ishangupta6412"
           target="_blank"
           rel="noopener noreferrer"
           title="Link to author's GitHub Profile"
@@ -23,7 +23,7 @@ function SocialLinks (props) {
           <i className="fab fa-github" />
         </a>
         <a
-          href="https://codepen.io/yagoestevez"
+          href="https://www.facebook.com/profile.php?id=100011038712583"
           target="_blank"
           rel="noopener noreferrer"
           title="Link to author's Codepen Profile"
@@ -32,7 +32,7 @@ function SocialLinks (props) {
           <i className="fab fa-facebook" />
         </a>
         <a
-          href="https://codepen.io/yagoestevez"
+          href="https://www.instagram.com/ishangupta641/z"
           target="_blank"
           rel="noopener noreferrer"
           title="Link to author's Codepen Profile"
@@ -41,7 +41,7 @@ function SocialLinks (props) {
           <i className="fab fa-instagram" />
         </a>
         <a
-          href="https://codepen.io/yagoestevez"
+          href="https://www.linkedin.com/in/ishan-gupta-0652611b8/"
           target="_blank"
           rel="noopener noreferrer"
           title="Link to author's Codepen Profile"
