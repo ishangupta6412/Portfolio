@@ -36,7 +36,7 @@ class App extends React.Component {
         <Nav toggleMenu={this.toggleMenu} showMenu={this.state.menuState} />
         <Header />
         <About />
-        <Projects />
+        {/* <Projects /> */}
         <Contact />
         <Footer />
         
