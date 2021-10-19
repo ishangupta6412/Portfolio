@@ -11,7 +11,7 @@ import Footer from './components/footer/footer.jsx';
 
 
 //CSS
-// import "./app.css";
+import "./css/app.css";
 
 
 class App extends React.Component {
