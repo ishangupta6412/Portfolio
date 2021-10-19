@@ -1,0 +1,5 @@
+const certi = [
+    {
+        img="./images"
+    }
+]
